@@ -1,12 +1,10 @@
 #!/usr/bin/node
 export default function taskBlock(trueOrFalse) {
-  let task = false;
-  let task2 = true;
+  const task = false;
+  const task2 = true;
 
   if (trueOrFalse) {
-    task = true;
-    task2 = false;
-    return [task2, task]
-  } 
+    return [task2, task];
+  }
   return [task, task2];
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/node
-export function getResponseFromAPI () {
+export default function getResponseFromAPI () {
   return new Promise((resolve, reject) => {
     const simCondition = true;
     const greet = 'Hello';

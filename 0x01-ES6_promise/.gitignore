@@ -3,4 +3,4 @@ package-lock.json
 package.json
 utils.js
 *.cjs
-2-*.test.js
+*.test.js

@@ -1,4 +1,4 @@
 #!/usr/bin/node
 export default function uploadPhoto(filename) {
-  return Promise.reject(Error(`${filename} cannot be accessed`));
+  return Promise.reject(Error(`${filename} cannot be processed`));
 }

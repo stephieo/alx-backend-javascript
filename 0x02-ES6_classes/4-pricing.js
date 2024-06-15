@@ -34,9 +34,13 @@ export default class Pricing {
     }
     this._currency = newCurrency;
   }
-  
+
+  // Methods
   displayFullPrice() {
     // const currencyDisplay = ;
     return `${this._amount} ${this._currency.displayFullCurrency()}`
+  }
+  convertPrice(amount, conversionRate) {
+    return amount * conversionRate;
   }
 }

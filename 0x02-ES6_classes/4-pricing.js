@@ -40,7 +40,7 @@ export default class Pricing {
     // const currencyDisplay = ;
     return `${this._amount} ${this._currency.displayFullCurrency()}`
   }
-  convertPrice(amount, conversionRate) {
+  static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
 }

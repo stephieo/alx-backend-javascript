@@ -5,14 +5,12 @@ process.stdout.write('Welcome to Holberton School, what is your name? \n');
 
 // listener for input in stdin
 process.stdin.on('readable', () => {
-  let user_input;
-  while((user_input = process.stdin.read()) !== null) {
-    process.stdout.write(`Your name is: ${user_input}`);
+  const userInput = process.stdin.read();
+  if (userInput !== null) {
+    process.stdout.write(`Your name is: ${userInput}`);
   }
   process.exit();
 });
-
-
 
 // process listener for the exit process
 process.on('exit', () => {

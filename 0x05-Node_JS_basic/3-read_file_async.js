@@ -34,8 +34,8 @@ function countStudents(path) {
             sweArray.push(entry.split(',')[0]);
           }
         });
-        console.log(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
-        console.log(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
+        // console.log(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
+        // console.log(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
 
         result.push(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
         result.push(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);

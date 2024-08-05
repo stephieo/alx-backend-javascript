@@ -12,9 +12,9 @@ app.get('/', (req, res) => {
 app.get('/students', async (req, res) => {
   try {
     const results = await countStudents(process.argv[2]);
-    res.send(`This is the list of our students\n${results}`);
+    res.send(['This is the list of our students', results].join('\n'));
   } catch (err) {
-    res.status(500).send('Cannot load database');
+    res.status(500).send('This is the list of our students\nCannot load database');
   }
 });
 

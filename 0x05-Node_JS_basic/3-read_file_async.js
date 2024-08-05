@@ -1,80 +1,80 @@
 #!/usr/bin/node
 const fs = require('fs');
-const util = require('util');
 
-const readFile = util.promisify(fs.readFile);
-async function countStudents(path) {
+function countStudents(path) {
   // LEARN: ASYNC/AWAIT  or TRY/CATCH APPROACH
-    try{
-      const contents = await readFile(path, 'utf-8');
-      // seperate entries and remove headers
-      const entries = contents.split('\n');
-      entries.shift();
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, 'utf-8', (err, data) => {
+      if (err) {
+        reject(Error('Cannot load the database'));
+      }
+      try {
+        // seperate entries and remove headers
+        const entries = data.split('\n');
+        entries.shift();
 
-      // collect length data
-      const numberOfStudents = entries.length;
-      console.log(`Number of students: ${numberOfStudents}`);
+        // collect length data
+        const numberOfStudents = entries.length;
+        console.log(`Number of students: ${numberOfStudents}`);
 
-      // collate and number of students per course
-      let csStudents = 0;
-      const csArray = [];
-      let sweStudents = 0;
-      const sweArray = [];
-      entries.forEach((entry) => {
-        if (entry.includes('CS')) {
-          csStudents += 1;
-          csArray.push(entry.split(',')[0]);
-        } else if (entry.includes('SWE')) {
-          sweStudents += 1;
-          entry.split(',');
-          sweArray.push(entry.split(',')[0]);
-        }
-      });
-      console.log(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
-      console.log(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
-      
-    } catch{
-            throw new Error('Cannot load the database');
-  }
-
-  // LEARN: THEN..CATCH APPROACH
-  // return fs.readFile(path, 'utf-8')
-  //   .then((contents) => {
-  //     // seperate entries and remove headers
-  //     const entries = contents.split('\n');
-  //     entries.shift();
-
-  //     // collect length data
-  //     const numberOfStudents = entries.length;
-  //     console.log(`Number of students: ${numberOfStudents}`);
-
-  //     // collate and number of students per course
-  //     let csStudents = 0;
-  //     const csArray = [];
-  //     let sweStudents = 0;
-  //     const sweArray = [];
-  //     entries.forEach((entry) => {
-  //       if (entry.includes('CS')) {
-  //         csStudents += 1;
-  //         csArray.push(entry.split(',')[0]);
-  //       } else if (entry.includes('SWE')) {
-  //         sweStudents += 1;
-  //         entry.split(',');
-  //         sweArray.push(entry.split(',')[0]);
-  //       }
-  //     });
-  //     console.log(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
-  //     console.log(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
-  //   })
-  //   .catch(() => {
-  //     throw new Error('Cannot load the database');
-  //   });
+        // collate and number of students per course
+        let csStudents = 0;
+        const csArray = [];
+        let sweStudents = 0;
+        const sweArray = [];
+        entries.forEach((entry) => {
+          if (entry.includes('CS')) {
+            csStudents += 1;
+            csArray.push(entry.split(',')[0]);
+          } else if (entry.includes('SWE')) {
+            sweStudents += 1;
+            entry.split(',');
+            sweArray.push(entry.split(',')[0]);
+          }
+        });
+        console.log(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
+        console.log(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
+        resolve();
+      } catch (err) {
+        reject(Error('Cannot load the database'));
+      }
+    });
+  });
 }
+// LEARN: THEN..CATCH APPROACH
+// return fs.readFile(path, 'utf-8')
+//   .then((data) => {
+//     // seperate entries and remove headers
+//     const entries = contents.split('\n');
+//     entries.shift();
+
+//     // collect length data
+//     const numberOfStudents = entries.length;
+//     console.log(`Number of students: ${numberOfStudents}`);
+
+//     // collate and number of students per course
+//     let csStudents = 0;
+//     const csArray = [];
+//     let sweStudents = 0;
+//     const sweArray = [];
+//     entries.forEach((entry) => {
+//       if (entry.includes('CS')) {
+//         csStudents += 1;
+//         csArray.push(entry.split(',')[0]);
+//       } else if (entry.includes('SWE')) {
+//         sweStudents += 1;
+//         entry.split(',');
+//         sweArray.push(entry.split(',')[0]);
+//       }
+//     });
+//     console.log(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
+//     console.log(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
+//   })
+//   .catch(() => {
+//     throw new Error('Cannot load the database');
+//   });
 
 module.exports = countStudents;
-
-
-
 
 // LEARN: THis is how i would do it im more modern node environments
 // const fs = require('fs/promises');

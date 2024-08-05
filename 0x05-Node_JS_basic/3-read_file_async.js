@@ -16,6 +16,8 @@ function countStudents(path) {
         // collect length data
         const numberOfStudents = entries.length;
         console.log(`Number of students: ${numberOfStudents}`);
+        const result = [];
+        result.push(`Number of students: ${numberOfStudents}`)
 
         // collate and number of students per course
         let csStudents = 0;
@@ -34,13 +36,18 @@ function countStudents(path) {
         });
         console.log(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
         console.log(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
-        resolve();
+
+        result.push(`Number of students in CS: ${csStudents}. List: ${csArray.join(', ')}`);
+        result.push(`Number of students in SWE: ${sweStudents}. List: ${sweArray.join(', ')}`);
+        resolve(result.join('\n'));
       } catch (err) {
         reject(Error('Cannot load the database'));
       }
     });
   });
 }
+
+module.exports = countStudents;
 // LEARN: THEN..CATCH APPROACH
 // return fs.readFile(path, 'utf-8')
 //   .then((data) => {
@@ -74,7 +81,6 @@ function countStudents(path) {
 //     throw new Error('Cannot load the database');
 //   });
 
-module.exports = countStudents;
 
 // LEARN: THis is how i would do it im more modern node environments
 // const fs = require('fs/promises');

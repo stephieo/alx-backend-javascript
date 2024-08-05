@@ -7,7 +7,7 @@ const app = http.createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain'});
     res.write('Hello Holberton School!');
     res.end();
-  } else if (req.url === '/students')
+  } else if (req.url === '/students') {
     res.writeHead(200, { 'Content-Type': 'text/plain'});
     res.write('This is the list of our students \n');
     try {
@@ -17,6 +17,7 @@ const app = http.createServer(async (req, res) => {
       res.write('Cannot load database');
     }
     res.end();
+  }
 });
 
 app.listen(1245,'127.0.0.1', () => {

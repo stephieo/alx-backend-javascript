@@ -15,7 +15,7 @@ function countStudents(path) {
 
         // collect length data
         const numberOfStudents = entries.length;
-        console.log(`Number of students: ${numberOfStudents}`);
+        // console.log(`Number of students: ${numberOfStudents}`);
         const result = [];
         result.push(`Number of students: ${numberOfStudents}`)
 

@@ -81,7 +81,6 @@ module.exports = countStudents;
 //     throw new Error('Cannot load the database');
 //   });
 
-
 // LEARN: THis is how i would do it im more modern node environments
 // const fs = require('fs/promises');
 

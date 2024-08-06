@@ -3,7 +3,7 @@ const assert = require('assert');
 const calculateNumber = require('./0-calcul');
 const { it } = require('mocha');
 
-describe('calculateNumber', function(){ // creates a test suite named calculateNumber
+describe('Suite1', function(){ // creates a test suite named calculateNumber
   it('checks that the result is rounded', function () { // defines an individual test case
     assert.strictEqual(calculateNumber(2.1, 3.2), 5); // actual test code
   });

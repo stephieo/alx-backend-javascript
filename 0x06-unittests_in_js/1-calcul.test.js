@@ -59,7 +59,7 @@ describe('Suite2', function() {
       assert.strictEqual(calculateNumber("DIVIDE", 3, 3.2), 1); // actual test code
     });
     it('checks result is rounded[1 decimal]', function () { // defines an individual test case
-      assert.strictEqual(calculateNumber("DIVIDE", 2.4, 8), 0.2); // actual test code
+      assert.strictEqual(calculateNumber("DIVIDE", 2.4, 8), 0.25); // actual test code
     });
     it('checks result is rounded[1 zerol]', function () { // defines an individual test case
       assert.strictEqual(calculateNumber("DIVIDE", 2.1, 0), "Error"); // actual test code
@@ -71,7 +71,7 @@ describe('Suite2', function() {
       assert.strictEqual(calculateNumber("DIVIDE", -1, 5), -0.2); // actual test code
     });
     it('checks result is rounded[2 negative]', function () { // defines an individual test case
-      assert.strictEqual(calculateNumber("DIVIDE", -4, -2), 1); // actual test code
+      assert.strictEqual(calculateNumber("DIVIDE", -4, -2), 2); // actual test code
     });
   });
 })

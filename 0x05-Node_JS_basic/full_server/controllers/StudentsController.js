@@ -23,7 +23,7 @@ class StudentsController {
     if (field !== 'CS' || 'SWE') {
       readDatabase(process.argv[2]).then((students) =>{
         output = [] // array of output lines
-        output.push(`List: students[field].join('\n')`)
+        output.push(`List: ${students[field].join('\n')}`)
         response.status(200).send(output);
       }
     } else {

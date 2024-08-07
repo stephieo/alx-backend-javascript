@@ -62,3 +62,26 @@ describe('available payments', function() {
       });
     });
 });
+
+describe('login', function() {
+    //  write the actual tests within the request callback
+    it('checks the status code  of a request', function (done) {
+      request.post('http://127.0.0.1:7865/login', function (error, response, body) {
+        expect(response.statusCode).to.be.equal(200);
+        done();
+      });
+    });
+
+    it('checks the  body of a request', function (done) {
+
+      request.post('http://127.0.0.1:7865/login',
+        {
+          json: true,
+          body : {userName: 'Kathy'}
+        },
+        function (error, response, body) {
+        expect(body).to.contain('Hello Kathy');
+        done();
+      });
+    });
+});

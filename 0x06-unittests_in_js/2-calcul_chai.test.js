@@ -1,6 +1,5 @@
 #!/usr/bin/node
 const expect = require('chai').expect;
-// const expect = await import('chai').expect;
 const calculateNumber = require('./1-calcul');
 const { describe, it } = require('mocha');
 
